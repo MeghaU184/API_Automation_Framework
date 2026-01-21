@@ -1,162 +1,142 @@
-Absolutely! We can expand your framework README to make it **full-fledged and professional**, including installation, usage, contribution guidelines, and license. Here's a more **complete version**:
+
+# 🚀 Python API Automation Framework
+
+A **Hybrid Custom API Automation Framework** built with **Python** and **PyTest**, designed for **scalable, maintainable, and enterprise-grade API testing**. This framework follows **industry best practices** with a modular folder structure, support for parallel execution, rich reporting, and easy integration into CI/CD pipelines.
 
 ---
 
-# 🐍 Python Hybrid API Automation Framework
+## 📌 Key Highlights
 
-A **custom hybrid API automation framework** built in Python for **RESTful API testing**. This framework supports **data-driven testing, schema validation, detailed reporting, and parallel execution**.
-
----
-
-## **Tech Stack**
-
-* **Python**: 3.12
-* **HTTP Requests**: `requests`
-* **Testing Framework**: `pytest`
-* **Reporting**: `Allure Report`, `pytest-html`
-* **Test Data**: CSV, Excel, JSON, Faker
-* **Advanced API Testing**: `jsonschema` (JSON validation)
-* **Parallel Execution**: `pytest-xdist`
+* Modular and scalable folder structure
+* Supports **CRUD-based API testing**
+* Parallel execution using **PyTest xdist**
+* **JSON schema validation** for advanced API testing
+* Rich reporting with **Allure** and **PyTest HTML**
+* Easy to extend for **CI/CD pipelines** (GitHub Actions, Jenkins, GitLab CI)
 
 ---
 
-## **Folder Structure**
+## 📂 Project Structure
 
 ```
-project_root/
+python-api-automation-framework/
 │
-├── tests/                     # All test cases
-│   ├── tests/crud/
-│   │   ├── test_create_booking.py
-│   │   ├── test_update_booking.py
-│   │   └── test_delete_booking.py
-│   └── tests/auth/
-│       ├── test_login.py
-│       └── test_logout.py
-│
-├── data/                      # Test data files
-│   ├── test_data.csv
-│   ├── test_data.json
-│   └── test_data.xlsx
-│
-├── utils/                     # Utility/helper functions
-│   ├── api_client.py
-│   ├── helpers.py
-│   └── logger.py
-│
-├── schemas/                   # JSON schemas for response validation
-│   └── booking_schema.json
-│
-├── reports/                   # All reports
-│   ├── allure_results/
-│   └── html_reports/
-│
-├── requirements.txt           # Required packages
-└── pytest.ini                 # Pytest configurations
+├── config/              # Environment & configuration files
+├── data/                # Test data (CSV, Excel, JSON)
+├── helpers/             # Utility & helper functions
+├── payloads/            # Request payloads
+├── schemas/             # JSON schema validations
+├── tests/
+│   ├── crud/            # CRUD-based API tests
+│   └── conftest.py      # PyTest fixtures
+├── reports/             # Test execution reports
+├── requirements.txt     # Project dependencies
+└── README.md
 ```
 
 ---
 
-## **Installation**
+## 🛠 Tech Stack
 
-1. **Clone the repository**
+| Component            | Technology              |
+| -------------------- | ----------------------- |
+| Language             | Python 3.12             |
+| HTTP Client          | `requests`              |
+| Test Framework       | `pytest`                |
+| Reporting            | Allure, `pytest-html`   |
+| Test Data Management | CSV, Excel, JSON, Faker |
+| API Validation       | `jsonschema`            |
+| Parallel Execution   | `pytest-xdist`          |
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/<your-repo>/python-api-automation-framework.git
+git clone https://github.com/your-username/python-api-automation-framework.git
 cd python-api-automation-framework
 ```
 
-2. **Create a virtual environment**
-
-```bash
-python -m venv .venv
-source .venv/bin/activate      # Linux/Mac
-.venv\Scripts\activate         # Windows
-```
-
-3. **Install dependencies**
+### 2️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-or manually:
+Or manually:
 
 ```bash
-pip install requests pytest pytest-html faker allure-pytest jsonschema pytest-xdist
+pip install requests pytest pytest-html faker allure-pytest jsonschema
+```
+
+### 3️⃣ Install Parallel Execution Support
+
+```bash
+pip install pytest-xdist
 ```
 
 ---
 
-## **How to Run Tests**
+## ▶️ Running Tests
 
-### **Run a Single Test**
+### Run a Single Test with Allure Report
 
 ```bash
-pytest tests/tests/crud/test_create_booking.py --alluredir=reports/allure_results -s
+pytest tests/crud/test_create_booking.py --alluredir=reports/allure_results -s
 ```
 
-### **Run All Tests**
+### Run All Tests
 
 ```bash
 pytest tests/ --alluredir=reports/allure_results -s
 ```
 
-### **Run Tests in Parallel**
+### Run Tests in Parallel
 
 ```bash
-pytest tests/ -n 4 --alluredir=reports/allure_results
+pytest tests/ -n auto --alluredir=reports/allure_results
 ```
 
-> `-n 4` runs tests on 4 parallel threads. Adjust based on your system resources.
-
-### **Generate Reports**
-
-* **Allure Report**
+### Generate Allure Report
 
 ```bash
 allure serve reports/allure_results
 ```
 
-* **HTML Report**
+---
 
-```bash
-pytest tests/ --html=reports/html_reports/report.html -s
-```
+## 🧪 Supported Test Scenarios
+
+* CRUD API testing
+* JSON schema validation
+* Data-driven testing (CSV, Excel, JSON, Faker)
+* Negative & edge-case testing
+* Parallel test execution
+* CI/CD-friendly execution
 
 ---
 
-## **Features**
+## 👨‍💻 Author
 
-* ✅ Centralized API Client (`GET`, `POST`, `PUT`, `DELETE`)
-* ✅ Data-driven tests with CSV, JSON, Excel, and Faker
-* ✅ JSON Schema validation for API responses
-* ✅ Parallel test execution with `pytest-xdist`
-* ✅ Detailed reporting with Allure and HTML
+**Megha U** – QA Tester | SDET | API Automation Tester
 
 ---
 
-## **Contributing**
+## 🤝 Contributions
 
-We welcome contributions!
+Contributions are welcome!
 
 1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature`
-3. Make your changes
-4. Commit your changes: `git commit -m "Add feature"`
-5. Push to the branch: `git push origin feature/your-feature`
-6. Open a Pull Request
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes
+4. Push the branch and open a Pull Request
 
 ---
 
-## **License**
+## 📄 License
 
-This project is licensed under the MIT License.
-See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
+You are free to use, modify, and distribute it **with attribution**.
 
----
-
-## **Contact**
-
-* **Author**: Megha U
-* **GitHub**: https://github.com/MeghaU184/API_Automation_Framework
